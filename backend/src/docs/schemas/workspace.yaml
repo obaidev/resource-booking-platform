@@ -1,0 +1,109 @@
+CreateWorkspaceRequest:
+  type: object
+  required:
+    - name
+    - address
+    - operatingHours
+  properties:
+    name:
+      type: string
+      example: Islamabad Coworking Hub
+    address:
+      type: string
+      example: Blue Area, Islamabad
+    description:
+      type: string
+      example: A modern coworking space in Islamabad
+    operatingHours:
+      type: object
+      required:
+        - open
+        - close
+      properties:
+        open:
+          type: string
+          example: "09:00"
+        close:
+          type: string
+          example: "22:00"
+
+UpdateWorkspaceRequest:
+  type: object
+  properties:
+    name:
+      type: string
+      example: Islamabad Coworking Hub
+    address:
+      type: string
+      example: Blue Area, Islamabad
+    description:
+      type: string
+      example: Updated workspace description
+    operatingHours:
+      type: object
+      properties:
+        open:
+          type: string
+          example: "09:00"
+        close:
+          type: string
+          example: "22:00"
+
+Workspace:
+  type: object
+  properties:
+    _id:
+      type: string
+      example: 64f123456789abcdef123456
+    name:
+      type: string
+      example: Islamabad Coworking Hub
+    address:
+      type: string
+      example: Blue Area, Islamabad
+    description:
+      type: string
+      example: A modern coworking space in Islamabad
+    operatingHours:
+      type: object
+      properties:
+        open:
+          type: string
+          example: "09:00"
+        close:
+          type: string
+          example: "22:00"
+    owner:
+      $ref: "#/components/schemas/User"
+    status:
+      type: string
+      enum:
+        - active
+        - inactive
+      example: active
+    createdAt:
+      type: string
+      format: date-time
+    updatedAt:
+      type: string
+      format: date-time
+
+WorkspaceResponse:
+  type: object
+  properties:
+    message:
+      type: string
+      example: Workspace created successfully
+    workspace:
+      $ref: "#/components/schemas/Workspace"
+
+WorkspaceListResponse:
+  type: object
+  properties:
+    message:
+      type: string
+      example: Workspaces fetched successfully
+    workspaces:
+      type: array
+      items:
+        $ref: "#/components/schemas/Workspace"

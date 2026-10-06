@@ -1,0 +1,331 @@
+/* Buttons */
+
+.primary-button,
+.secondary-button,
+.danger-button {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: background 0.2s ease;
+}
+
+.primary-button {
+  background: var(--primary);
+  color: white;
+}
+
+.primary-button:hover {
+  background: var(--primary-hover);
+}
+
+.secondary-button {
+  background: #e2e8f0;
+  color: #334155;
+}
+
+.secondary-button:hover {
+  background: #cbd5e1;
+}
+
+.danger-button {
+  background: var(--danger-bg);
+  color: var(--danger-text);
+}
+
+.danger-button:hover {
+  background: #fecaca;
+}
+
+/* Common States */
+
+.state-message,
+.empty-state {
+  padding: 40px 24px;
+  text-align: center;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+}
+
+.state-message p,
+.empty-state p {
+  color: var(--muted);
+}
+
+.error-message {
+  color: var(--danger-text);
+}
+
+.empty-state h2 {
+  margin-top: 0;
+}
+
+/* Resource Cards */
+
+.resource-card {
+  padding: 24px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.06);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.resource-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.09);
+}
+
+.resource-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.resource-card-header h2 {
+  margin: 0;
+  font-size: 20px;
+  line-height: 1.3;
+}
+
+.resource-card-header span {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.resource-card p {
+  margin: 10px 0;
+  color: var(--muted);
+}
+
+.resource-prices {
+  display: flex;
+  gap: 24px;
+  margin: 20px 0;
+}
+
+.resource-prices p {
+  margin: 0;
+  color: var(--text);
+  font-weight: 600;
+}
+
+.resource-type {
+  display: block;
+  margin-top: 5px;
+  color: var(--muted);
+  font-size: 14px;
+  text-transform: capitalize;
+}
+
+.resource-status {
+  padding: 5px 10px;
+  border-radius: 999px;
+  font-size: 13px;
+  text-transform: capitalize;
+}
+
+.resource-status.active {
+  background: var(--success-bg);
+  color: var(--success-text);
+}
+
+.resource-status.inactive {
+  background: var(--danger-bg);
+  color: var(--danger-text);
+}
+
+/* Resource Details */
+
+.resource-details {
+  margin: 8px 0 20px;
+}
+
+.resource-details p {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 8px 0;
+  margin: 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.resource-details p:last-child {
+  border-bottom: none;
+}
+
+.resource-details strong {
+  color: var(--text);
+}
+
+.resource-details span {
+  color: var(--muted);
+}
+
+/* Customer Resource Card */
+
+.customer-resource-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.customer-resource-card .resource-details {
+  margin: 8px 0 20px;
+}
+
+.resource-card-footer {
+  margin-top: auto;
+}
+
+.resource-card-footer .primary-button {
+  width: 100%;
+}
+
+.resource-card-footer .primary-button:disabled {
+  background: #cbd5e1;
+  color: #64748b;
+  cursor: not-allowed;
+}
+
+/* Owner Resource Card */
+
+.owner-resource-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.resource-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: auto;
+}
+
+.resource-actions button {
+  flex: 1;
+}
+
+/* Workspace Cards */
+
+.workspace-card {
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.06);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.workspace-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.09);
+}
+
+.workspace-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.workspace-card h2 {
+  margin: 0 0 6px;
+  font-size: 20px;
+  line-height: 1.3;
+}
+
+.workspace-address {
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.workspace-status {
+  padding: 5px 10px;
+  border-radius: 999px;
+  font-size: 13px;
+  text-transform: capitalize;
+}
+
+.workspace-status.active {
+  background: var(--success-bg);
+  color: var(--success-text);
+}
+
+.workspace-status.inactive {
+  background: var(--danger-bg);
+  color: var(--danger-text);
+}
+
+.workspace-description {
+  margin: 0 0 20px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.workspace-details {
+  margin-bottom: 24px;
+  padding: 14px 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.workspace-details div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
+.workspace-details span {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.workspace-details strong {
+  color: var(--text);
+  font-size: 14px;
+}
+
+.workspace-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: auto;
+}
+
+.workspace-actions button {
+  flex: 1;
+}
+
+/* Responsive Component Styles */
+
+@media (max-width: 600px) {
+  .workspace-card {
+    padding: 20px;
+  }
+
+  .workspace-card-header {
+    flex-direction: column;
+  }
+
+  .workspace-actions {
+    flex-direction: column;
+  }
+
+  .resource-actions {
+    flex-direction: column;
+  }
+
+  .resource-actions button {
+    width: 100%;
+  }
+}

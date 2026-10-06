@@ -1,0 +1,86 @@
+CreateBookingRequest:
+  type: object
+  required:
+    - resource
+    - startTime
+    - endTime
+  properties:
+    resource:
+      type: string
+      example: 64f123456789abcdef123456
+
+    startTime:
+      type: string
+      format: date-time
+      example: "2026-09-20T10:00:00.000Z"
+
+    endTime:
+      type: string
+      format: date-time
+      example: "2026-09-20T12:00:00.000Z"
+
+Booking:
+  type: object
+  properties:
+    _id:
+      type: string
+      example: 64f123456789abcdef123456
+
+    user:
+      $ref: "#/components/schemas/User"
+
+    resource:
+      $ref: "#/components/schemas/Resource"
+
+    startTime:
+      type: string
+      format: date-time
+      example: "2026-09-20T10:00:00.000Z"
+
+    endTime:
+      type: string
+      format: date-time
+      example: "2026-09-20T12:00:00.000Z"
+
+    status:
+      type: string
+      enum:
+        - pending
+        - confirmed
+        - cancelled
+      example: confirmed
+
+    totalPrice:
+      type: number
+      minimum: 0
+      example: 1000
+
+    createdAt:
+      type: string
+      format: date-time
+
+    updatedAt:
+      type: string
+      format: date-time
+
+BookingResponse:
+  type: object
+  properties:
+    message:
+      type: string
+      example: Booking created successfully
+
+    booking:
+      $ref: "#/components/schemas/Booking"
+
+BookingListResponse:
+  type: object
+  properties:
+    message:
+      type: string
+      example: Bookings fetched successfully
+
+    bookings:
+      type: array
+      items:
+        $ref: "#/components/schemas/Booking"

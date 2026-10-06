@@ -1,0 +1,79 @@
+RegisterRequest:
+  type: object
+  required:
+    - name
+    - email
+    - password
+    - role
+  properties:
+    name:
+      type: string
+      example: Ali Khan
+    email:
+      type: string
+      format: email
+      example: ali.khan@gmail.com
+    password:
+      type: string
+      format: password
+      example: "12345678"
+    role:
+      type: string
+      enum:
+        - customer
+        - owner
+      example: customer
+
+LoginRequest:
+  type: object
+  required:
+    - email
+    - password
+  properties:
+    email:
+      type: string
+      format: email
+      example: ali.khan@gmail.com
+    password:
+      type: string
+      format: password
+      example: "12345678"
+RegisterResponse:
+  type: object
+  properties:
+    message:
+      type: string
+      example: User registered successfully
+    user:
+      $ref: "#/components/schemas/User"
+
+LoginResponse:
+  type: object
+  properties:
+    message:
+      type: string
+      example: Login successful
+    token:
+      type: string
+      example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
+
+User:
+  type: object
+  properties:
+    _id:
+      type: string
+      example: 64f123456789abcdef123456
+    name:
+      type: string
+      example: Ali Khan
+    email:
+      type: string
+      format: email
+      example: ali.khan@gmail.com
+    role:
+      type: string
+      enum:
+        - customer
+        - owner
+        - admin
+      example: customer

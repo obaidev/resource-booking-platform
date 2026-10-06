@@ -1,0 +1,140 @@
+CreateResourceRequest:
+  type: object
+  required:
+    - name
+    - type
+    - capacity
+    - hourlyPrice
+    - workspaceId
+  properties:
+    name:
+      type: string
+      example: Desk A1
+
+    type:
+      type: string
+      enum:
+        - desk
+        - meeting_room
+        - private_office
+      example: desk
+
+    capacity:
+      type: number
+      minimum: 1
+      example: 1
+
+    hourlyPrice:
+      type: number
+      minimum: 0
+      example: 500
+
+    dailyPrice:
+      type: number
+      minimum: 0
+      example: 3000
+
+    workspaceId:
+      type: string
+      example: 64f123456789abcdef123456
+
+UpdateResourceRequest:
+  type: object
+  properties:
+    name:
+      type: string
+      example: Desk A1 Updated
+
+    type:
+      type: string
+      enum:
+        - desk
+        - meeting_room
+        - private_office
+      example: desk
+
+    capacity:
+      type: number
+      minimum: 1
+      example: 2
+
+    hourlyPrice:
+      type: number
+      minimum: 0
+      example: 600
+
+    dailyPrice:
+      type: number
+      minimum: 0
+      example: 3500
+
+Resource:
+  type: object
+  properties:
+    _id:
+      type: string
+      example: 64f123456789abcdef123456
+
+    name:
+      type: string
+      example: Desk A1
+
+    type:
+      type: string
+      enum:
+        - desk
+        - meeting_room
+        - private_office
+      example: desk
+
+    capacity:
+      type: number
+      example: 1
+
+    hourlyPrice:
+      type: number
+      example: 500
+
+    dailyPrice:
+      type: number
+      example: 3000
+
+    status:
+      type: string
+      enum:
+        - active
+        - inactive
+      example: active
+
+    workspace:
+      $ref: "#/components/schemas/Workspace"
+
+    createdAt:
+      type: string
+      format: date-time
+
+    updatedAt:
+      type: string
+      format: date-time
+
+ResourceResponse:
+  type: object
+  properties:
+    message:
+      type: string
+      example: Resource created successfully
+
+    resource:
+      $ref: "#/components/schemas/Resource"
+
+ResourceListResponse:
+  type: object
+  properties:
+    message:
+      type: string
+      example: Resources fetched successfully
+
+    resources:
+      type: array
+      items:
+        $ref: "#/components/schemas/Resource"
