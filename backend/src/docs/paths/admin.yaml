@@ -1,0 +1,40 @@
+/api/admin/dashboard:
+  get:
+    tags:
+      - Admin
+    summary: Get admin dashboard statistics
+    description: Returns dashboard statistics. Requires an authenticated admin user.
+    security:
+      - bearerAuth: []
+    responses:
+      "200":
+        description: Admin dashboard retrieved successfully
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                message:
+                  type: string
+                  example: Admin dashboard fetched successfully
+                stats:
+                  type: object
+                  properties:
+                    totalUsers:
+                      type: integer
+                      example: 12
+                    totalWorkspaces:
+                      type: integer
+                      example: 5
+                    totalResources:
+                      type: integer
+                      example: 24
+                    totalBookings:
+                      type: integer
+                      example: 87
+      "401":
+        description: Authentication required or token invalid
+      "403":
+        description: Access denied. Admin role required
+      "500":
+        description: Internal server error

@@ -50,6 +50,7 @@ const swaggerSpec = {
     ...loadYaml("paths/workspace.yaml"),
     ...loadYaml("paths/resource.yaml"),
     ...loadYaml("paths/booking.yaml"),
+    ...loadYaml("paths/admin.yaml"),
   },
 };
 
